@@ -153,19 +153,22 @@
       </div>
     </div>
 
-    <!-- 이미지 2 + 텍스트 2 -->
-    <div class="relative w-full max-w-3xl mx-auto overflow-hidden sm:rounded-3xl shadow-sm">
-      <div class="relative w-full min-h-[420px] sm:min-h-[480px] flex flex-col justify-end">
-        <img
-          src="https://via.placeholder.com/800x500/87CEEB/ffffff?text=하늘보며+두팔벌린+사진"
-          onerror="this.onerror=null;this.src='https://placehold.co/800x500/87CEEB/ffffff/png?text=%ED%95%98%EB%8A%98%EB%B3%B4%EB%A9%B0+%EB%91%90%ED%8C%94%EB%B2%8C%EB%A6%B0+%EC%82%AC%EC%A7%84';"
-          alt="하늘보며 두팔벌린 사진"
-          class="absolute inset-0 w-full h-full object-cover"
-        />
-        <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/92 to-transparent"></div>
+    <!-- 이미지 2 + 텍스트 2 (성자 로브 & 후광 누끼 이미지 적용) -->
+    <div class="relative w-full max-w-3xl mx-auto overflow-hidden sm:rounded-3xl shadow-sm bg-gradient-to-b from-sky-200/75 via-amber-100/50 to-white">
+      <!-- 천상의 햇살 배경 광원 -->
+      <div class="pointer-events-none absolute top-6 left-1/2 -translate-x-1/2 w-80 h-80 sm:w-96 sm:h-96 bg-yellow-200/70 rounded-full blur-3xl"></div>
 
-        <div class="relative z-10 p-6 sm:p-10 max-w-xl mx-auto">
+      <div class="relative w-full pt-8 flex flex-col items-center justify-end">
+        <img
+          src="./saint-instructor-cutout.png"
+          alt="절대 선의 경지에 오른 이정인 선생"
+          class="relative z-10 w-full max-w-xl h-auto object-contain drop-shadow-[0_20px_35px_rgba(15,23,42,0.18)] select-none"
+        />
+        <!-- 상단 및 하단 그라데이션 오버레이 -->
+        <div class="pointer-events-none absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-white to-transparent"></div>
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-white via-white/95 to-transparent z-10"></div>
+
+        <div class="relative z-20 -mt-12 sm:-mt-16 p-6 sm:p-10 max-w-xl mx-auto text-center sm:text-left">
           <p class="text-[1.6rem] sm:text-3xl font-black leading-[1.58] text-slate-900 break-keep">
             "우주의 기운을 받아 어떤 악인을 마주해도 평온하게 미소 짓는 <span class="marker-yellow">'절대 선(善)'의 경지</span>에 올랐을 때, 저는 결심했습니다. <span class="warning-serif">이 기적 같은 해답을 저 혼자만 독식할 순 없다고.</span>"
           </p>
