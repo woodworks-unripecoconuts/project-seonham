@@ -66,35 +66,37 @@
 <body class="bg-gradient-to-b from-sky-50 via-white to-amber-50/40 text-slate-900 font-sans antialiased overflow-x-hidden selection:bg-yellow-300 selection:text-slate-900">
 
   <!-- ==========================================
-       1. 히어로 섹션 (문제 제기 훅 + 우측 하단 누끼 Overlap)
+       1. 히어로 섹션 (문제 제기 훅 + 우측 하단 대표 사진 Overlap)
   =========================================== -->
-  <section class="relative bg-gradient-to-b from-sky-100/70 via-white to-amber-50/50 pt-14 pb-44 sm:pb-52 px-6 border-b border-sky-100 overflow-visible">
+  <section class="relative bg-gradient-to-b from-sky-100/70 via-white to-amber-50/50 pt-14 pb-52 sm:pb-64 px-6 border-b border-sky-100 overflow-visible">
     <!-- 은은한 햇살 배경 광원 -->
     <div class="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-80 h-80 bg-yellow-200/40 rounded-full blur-3xl"></div>
 
     <div class="max-w-xl mx-auto relative z-10">
-      <h1 class="text-2xl sm:text-4xl font-black leading-[1.45] tracking-tight text-slate-900 break-keep pr-6 sm:pr-14">
+      <h1 class="text-2xl sm:text-4xl font-black leading-[1.45] tracking-tight text-slate-900 break-keep">
         "착하게 살려고 마음먹었는데, <span class="text-red-600">세상에 불의와 악한 인간들이 너무 많아 도저히 화를 참을 수가 없나요?</span><br /><br />
         제가 해결해 드립니다.<br />
         리그오브레전드(LoL) 욕설 리폿 100번 박힌 분노조절장애 트롤러조차 하루 만에 오열하며 회개하고, 숨 쉬듯 <span class="marker-yellow">'무의식적으로 선함을 행하는 자동화'</span> 경지에 올라 성자(聖者)로 환골탈태한 비밀을 최초 공개합니다."
       </h1>
     </div>
 
-    <!-- 팔짱낀 대표 누끼 이미지: 모바일 우측 하단 배치 & 다음 섹션 위로 Overlap -->
-    <div class="absolute -bottom-20 sm:-bottom-24 right-4 sm:right-10 md:right-[calc(50%-18rem)] z-20 pointer-events-none select-none">
-      <img
-        src="https://via.placeholder.com/600x800/eeeeee/333333?text=팔짱낀+대표(누끼)"
-        onerror="this.onerror=null;this.src='https://placehold.co/600x800/eeeeee/333333/png?text=%ED%8C%94%EC%A7%B1%EB%82%80+%EB%8C%80%ED%91%9C(%EB%88%84%EB%81%BC)';"
-        alt="팔짱낀 대표 누끼"
-        class="w-40 sm:w-52 h-auto object-contain drop-shadow-[0_18px_28px_rgba(15,23,42,0.22)] rounded-t-xl"
-      />
+    <!-- 팔짱낀 대표 사진: 모바일 우측 하단 배치 & 다음 섹션 위로 Overlap -->
+    <div class="absolute -bottom-24 sm:-bottom-28 right-5 sm:right-10 md:right-[calc(50%-18rem)] z-20 pointer-events-none select-none">
+      <div class="relative">
+        <div class="absolute -inset-3 bg-gradient-to-t from-amber-300/60 via-yellow-200/50 to-transparent rounded-3xl blur-xl"></div>
+        <img
+          src="./hero-instructor.jpg"
+          alt="팔짱낀 대표 사진"
+          class="relative w-44 sm:w-56 h-auto object-cover rounded-2xl border-4 border-white ring-2 ring-amber-300 shadow-[0_20px_45px_rgba(15,23,42,0.28)]"
+        />
+      </div>
     </div>
   </section>
 
   <!-- ==========================================
        2. 페인 포인트 자극 및 경고 (원인 진단과 경고)
   =========================================== -->
-  <section class="relative z-10 bg-white pt-32 pb-24 px-6 border-b border-amber-100">
+  <section class="relative z-10 bg-white pt-36 sm:pt-40 pb-24 px-6 border-b border-amber-100">
     <div class="max-w-xl mx-auto">
       <p class="warning-serif text-[1.6rem] sm:text-3xl font-black leading-[1.6] break-keep">
         "무례한 인간들과 불의 앞에서 매번 피가 거꾸로 솟구치는 이유는 당신의 인성이 부족해서가 아닙니다. 선함을 <span class="marker-yellow">'억지 인내심'으로만 버티도록 뇌가 잘못 설계되었기 때문</span>입니다. 이 페이지를 지금 닫으신다면, 평생 세상의 악인들 때문에 분노와 화병에 시달리다 결국 똑같이 악해지는 지옥 같은 삶을 살게 될 것입니다."
