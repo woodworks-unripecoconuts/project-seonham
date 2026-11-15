@@ -8,7 +8,7 @@
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Fonts: Pretendard 대체용 Noto Sans KR & 경고문용 명조/궁서 계열 Noto Serif KR -->
+  <!-- Google Fonts: 본문용 Noto Sans KR & 경고문용 명조/궁서 계열 Noto Serif KR -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700;900&family=Noto+Serif+KR:wght@600;700;900&display=swap" rel="stylesheet">
@@ -24,8 +24,8 @@
           },
           keyframes: {
             pulseGlow: {
-              '0%, 100%': { boxShadow: '0 0 25px rgba(239, 68, 68, 0.8), 0 0 50px rgba(239, 68, 68, 0.4)' },
-              '50%': { boxShadow: '0 0 10px rgba(239, 68, 68, 0.4), 0 0 20px rgba(239, 68, 68, 0.2)' },
+              '0%, 100%': { boxShadow: '0 8px 28px rgba(245, 158, 11, 0.55), 0 0 0 4px rgba(253, 224, 71, 0.35)' },
+              '50%': { boxShadow: '0 4px 16px rgba(245, 158, 11, 0.3), 0 0 0 0px rgba(253, 224, 71, 0)' },
             },
             floatSlow: {
               '0%, 100%': { transform: 'translateY(0px)' },
@@ -42,31 +42,31 @@
   </script>
 
   <style>
-    /* 노란색 형광펜 밑줄 강조 효과 */
+    /* 밝은 종이 위 리얼 노란색 형광펜 밑줄 강조 효과 */
     .marker-yellow {
-      background: linear-gradient(180deg, rgba(255,255,255,0) 35%, #fde047 35%, #facc15 90%, rgba(255,255,255,0) 90%);
-      color: #111827;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 32%, #fef08a 32%, #facc15 88%, rgba(255,255,255,0) 88%);
+      color: #0f172a;
       padding: 0 4px;
       font-weight: 900;
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
     }
 
-    /* 다크 배경 위 형광 노란색 하이라이트 */
+    /* 진한 노란색 형광 하이라이트 배지형 강조 */
     .marker-yellow-solid {
-      background-color: #facc15;
-      color: #09090b;
-      padding: 2px 6px;
+      background: linear-gradient(180deg, rgba(255,255,255,0) 15%, #fde047 15%, #facc15 92%, rgba(255,255,255,0) 92%);
+      color: #0f172a;
+      padding: 1px 6px;
       font-weight: 900;
       box-decoration-break: clone;
       -webkit-box-decoration-break: clone;
     }
 
-    /* 빨간색 궁서/명조체 경고문 */
+    /* 빨간색 궁서/명조체 경고문 (밝은 배경에서 더욱 선명하게 각인) */
     .warning-serif {
       font-family: "Gungsuh", "궁서", "궁서체", "Noto Serif KR", "Batang", serif;
-      color: #ef4444;
-      text-shadow: 0 2px 12px rgba(239, 68, 68, 0.35);
+      color: #dc2626;
+      text-shadow: 0 1px 8px rgba(220, 38, 38, 0.14);
       letter-spacing: -0.02em;
     }
 
@@ -76,12 +76,13 @@
       will-change: transform;
     }
 
-    /* 폴라로이드 감성 프레임 */
+    /* 밝고 따뜻한 배경 위에서 두꺼운 흰색 테두리가 돋보이는 폴라로이드 감성 프레임 */
     .polaroid-card {
       background: #ffffff;
-      padding: 14px 14px 42px 14px;
-      box-shadow: 0 22px 45px -12px rgba(0, 0, 0, 0.55), 0 4px 12px rgba(0, 0, 0, 0.25);
-      border: 1px solid rgba(255, 255, 255, 0.9);
+      padding: 16px 16px 44px 16px;
+      box-shadow: 0 22px 45px -12px rgba(15, 23, 42, 0.18), 0 6px 18px rgba(15, 23, 42, 0.08);
+      border: 2px solid #ffffff;
+      outline: 1px solid rgba(226, 232, 240, 0.9);
     }
 
     /* 모바일 스와이프 스크롤바 숨기기 */
@@ -95,65 +96,69 @@
   </style>
 </head>
 
-<body class="bg-zinc-950 text-white font-sans antialiased overflow-x-hidden selection:bg-yellow-400 selection:text-black pb-36">
+<body class="bg-gradient-to-b from-sky-50 via-white to-amber-50/40 text-slate-900 font-sans antialiased overflow-x-hidden selection:bg-yellow-300 selection:text-slate-900 pb-36">
 
-  <!-- 최상단 긴급 경고 띠 (네비게이션 메뉴 없음, 오직 이탈 방지 경고만 존재) -->
-  <div class="bg-red-700 text-white text-center py-2.5 px-3 border-b-2 border-yellow-400">
-    <p class="text-xs sm:text-sm font-black tracking-tight animate-pulse">
-      ⚠️ 경고: 본 비밀 브리핑은 도덕적 독점 방지를 위해 <span class="underline decoration-yellow-300 text-yellow-300">선착순 100명 열람 즉시 영구 폐쇄</span>됩니다.
+  <!-- 최상단 긴급 안내 띠 (네비게이션 메뉴 없음, 오직 이탈 방지 메시지) -->
+  <div class="bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 text-white text-center py-2.5 px-3 border-b-2 border-yellow-200 shadow-sm">
+    <p class="text-xs sm:text-sm font-black tracking-tight">
+      ✨ 긴급 공지: 본 축복의 브리핑은 도덕적 독점 방지를 위해 <span class="underline decoration-yellow-200 text-yellow-100">선착순 100명 열람 즉시 영구 마감</span>됩니다.
     </p>
   </div>
 
   <!-- ==========================================
        1. 히어로 섹션 (문제 제기 및 훅 + 누끼 Overlap)
+       (밝고 희망찬 하늘빛 & 황금빛 후광 테마)
   =========================================== -->
-  <section class="relative bg-gradient-to-b from-zinc-950 via-zinc-900 to-zinc-950 pt-8 pb-36 sm:pb-44 px-5 border-b border-zinc-800 overflow-visible">
-    <!-- 배경 광원 효과 -->
-    <div class="pointer-events-none absolute top-10 left-1/2 -translate-x-1/2 w-80 h-80 bg-yellow-500/15 rounded-full blur-3xl"></div>
+  <section class="relative bg-gradient-to-b from-sky-100/80 via-white to-amber-50/70 pt-8 pb-36 sm:pb-44 px-5 border-b border-sky-200/80 overflow-visible">
+    <!-- 희망찬 햇살/천국 후광 광원 효과 -->
+    <div class="pointer-events-none absolute -top-10 left-1/2 -translate-x-1/2 w-96 h-96 bg-yellow-300/35 rounded-full blur-3xl"></div>
+    <div class="pointer-events-none absolute top-28 right-0 w-72 h-72 bg-sky-300/30 rounded-full blur-3xl"></div>
 
     <div class="max-w-xl mx-auto relative z-10">
       <!-- 상단 배지 -->
-      <div class="inline-flex items-center gap-1.5 bg-zinc-900/90 border border-yellow-500/60 text-yellow-400 text-xs sm:text-sm font-extrabold px-3.5 py-1.5 rounded-full mb-5 shadow-lg">
-        <span class="w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
-        대한민국 상위 0.1% 도덕적 기득권 대외비 유출본
+      <div class="inline-flex items-center gap-1.5 bg-white/95 border-2 border-amber-400 text-amber-700 text-xs sm:text-sm font-extrabold px-3.5 py-1.5 rounded-full mb-5 shadow-md">
+        <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-ping"></span>
+        ☀️ 대한민국 상위 0.1% 선인(善人)들의 비밀 마인드셋
       </div>
 
-      <!-- 핵심 헤드라인 (섹션 1 텍스트 - 기본 큼직한 사이즈) -->
-      <h1 class="text-[1.65rem] sm:text-4xl font-black leading-[1.35] tracking-tight text-white mb-6">
-        "당신은 아직도 <span class="text-red-500 underline decoration-wavy decoration-red-500">'호구'처럼 무식하게</span> 착하기만 하십니까?
+      <!-- 핵심 헤드라인 (섹션 1 텍스트) -->
+      <h1 class="text-[1.65rem] sm:text-4xl font-black leading-[1.38] tracking-tight text-slate-900 mb-6">
+        "당신은 아직도 <span class="text-red-600 underline decoration-wavy decoration-red-500">'호구'처럼 무식하게</span> 착하기만 하십니까?
         <span class="marker-yellow-solid">상위 0.1% 진짜 선인(善人)들</span>이 숨겨온,
-        <span class="text-yellow-400">월 수익 0원으로도 천국 가는 자동화 시스템</span>의 비밀을 최초 공개합니다."
+        <span class="text-sky-700 underline decoration-amber-400 decoration-4">월 수익 0원으로도 천국 가는 자동화 시스템</span>의 비밀을 최초 공개합니다."
       </h1>
 
-      <!-- VSL 비디오 플레이어 목업 (시선 고정 및 체류시간 극대화) -->
-      <div class="relative w-full aspect-video bg-black rounded-2xl border-2 border-yellow-400/80 shadow-[0_0_35px_rgba(250,204,21,0.2)] overflow-hidden mb-7 group">
-        <div class="absolute inset-0 bg-gradient-to-tr from-zinc-950 via-zinc-900/90 to-red-950/60 flex flex-col items-center justify-center p-4 text-center">
-          <div class="bg-red-600 text-white text-[11px] font-black px-2.5 py-0.5 rounded mb-2.5 animate-bounce">
-            🔊 소리를 켜고 끝까지 시청하십시오 (03:42)
+      <!-- VSL 비디오 플레이어 목업 (희망찬 천국빛 & 골드 프레임) -->
+      <div class="relative w-full aspect-video bg-gradient-to-br from-sky-500 via-sky-400 to-amber-200 rounded-2xl border-4 border-white ring-2 ring-amber-400 shadow-[0_20px_50px_rgba(14,165,233,0.22)] overflow-hidden mb-7 group">
+        <!-- 구름/햇살 광원 -->
+        <div class="absolute -top-10 -right-10 w-44 h-44 bg-yellow-200/70 rounded-full blur-2xl"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-900/55 via-sky-900/20 to-transparent flex flex-col items-center justify-center p-4 text-center">
+          <div class="bg-white text-amber-700 border border-amber-300 text-[11px] font-black px-3 py-1 rounded-full mb-2.5 shadow animate-bounce">
+            🔊 소리를 켜고 축복의 비밀을 끝까지 시청하십시오 (03:42)
           </div>
-          <a href="#checkout-section-placeholder" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-yellow-400 text-black flex items-center justify-center shadow-[0_0_30px_rgba(250,204,21,0.9)] group-hover:scale-110 transition-transform">
+          <a href="#checkout-section-placeholder" class="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-br from-yellow-300 via-amber-400 to-orange-400 text-slate-900 flex items-center justify-center shadow-[0_0_35px_rgba(255,255,255,0.95)] border-4 border-white group-hover:scale-110 transition-transform">
             <svg class="w-8 h-8 sm:w-10 sm:h-10 ml-1 fill-current" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z"/>
             </svg>
           </a>
-          <p class="mt-3 text-xs sm:text-sm text-zinc-200 font-bold max-w-[260px] sm:max-w-xs">
-            "왜 착하게 살수록 통장은 텅 비고 인간관계는 파탄 나는가?"
+          <p class="mt-3 text-xs sm:text-sm text-white font-extrabold drop-shadow max-w-[270px] sm:max-w-xs">
+            "당신의 선행이 호구가 아닌 '압도적 축복과 존경'으로 바뀌는 순간"
           </p>
         </div>
-        <!-- 하단 가짜 재생바 -->
-        <div class="absolute bottom-0 left-0 right-0 h-1.5 bg-zinc-800">
-          <div class="h-full w-2/3 bg-red-600"></div>
+        <!-- 하단 재생바 -->
+        <div class="absolute bottom-0 left-0 right-0 h-2 bg-white/40">
+          <div class="h-full w-2/3 bg-gradient-to-r from-amber-400 to-rose-500"></div>
         </div>
       </div>
 
       <!-- 우측 하단 누끼 이미지와 겹치지 않도록 좌측 정렬된 서브 카피 및 첫 번째 CTA -->
       <div class="pr-32 sm:pr-48 relative z-30">
-        <p class="text-sm sm:text-base text-zinc-300 font-medium leading-relaxed mb-5">
-          아무 대가 없이 양보하고 배려하던 당신의 선행이 왜 <span class="warning-serif font-bold text-base sm:text-lg">'만만한 호구'</span>라는 낙인으로 돌아왔는지, 지금 바로 확인하십시오.
+        <p class="text-sm sm:text-base text-slate-700 font-semibold leading-relaxed mb-5">
+          아무 대가 없이 양보하고 배려하던 당신의 선행이 왜 <span class="warning-serif font-bold text-base sm:text-lg">'만만한 호구'</span>라는 상처로 돌아왔는지, 이제 빛나는 해답을 확인하십시오.
         </p>
 
         <a href="#checkout-section-placeholder"
-           class="inline-block w-full sm:w-auto text-center bg-gradient-to-r from-red-600 via-red-500 to-orange-500 hover:from-red-500 hover:to-yellow-500 text-white font-black text-base sm:text-lg px-6 py-4 rounded-xl shadow-lg animate-pulseGlow transition transform active:scale-95">
+           class="inline-block w-full sm:w-auto text-center bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 hover:from-amber-400 hover:to-rose-400 text-white font-black text-base sm:text-lg px-6 py-4 rounded-xl shadow-lg animate-pulseGlow transition transform active:scale-95">
           천국행 자동화 시스템 즉시 확보하기 👉
         </a>
       </div>
@@ -164,16 +169,16 @@
          인물 하단부가 바로 다음 섹션(고통 공감 섹션) 위로 자연스럽게 겹치고 튀어나오도록(Overlap) 구현 -->
     <div class="absolute -bottom-20 sm:-bottom-24 right-2 sm:right-8 md:right-[calc(50%-18rem)] z-20 pointer-events-none select-none">
       <div class="relative">
-        <!-- 인물 뒤 후광 효과 -->
-        <div class="absolute -inset-2 bg-gradient-to-t from-red-600/40 via-yellow-400/30 to-transparent rounded-full blur-xl"></div>
+        <!-- 인물 뒤 밝고 성스러운 황금빛 후광 효과 -->
+        <div class="absolute -inset-3 bg-gradient-to-t from-amber-300/70 via-yellow-200/60 to-sky-200/50 rounded-full blur-xl"></div>
         <img
           src="https://via.placeholder.com/600x800/eeeeee/333333?text=팔짱낀+대표(누끼)"
           onerror="this.onerror=null;this.src='https://placehold.co/600x800/eeeeee/333333/png?text=%ED%8C%94%EC%A7%B1%EB%82%80+%EB%8C%80%ED%91%9C(%EB%88%84%EB%81%BC)';"
           alt="절대 선 마스터 팔짱낀 대표 누끼"
-          class="relative w-40 sm:w-52 md:w-56 h-auto object-contain drop-shadow-[0_20px_25px_rgba(0,0,0,0.85)] rounded-t-2xl border-b-4 border-yellow-400"
+          class="relative w-40 sm:w-52 md:w-56 h-auto object-contain drop-shadow-[0_18px_28px_rgba(15,23,42,0.28)] rounded-t-2xl border-b-4 border-amber-400 bg-white/40 backdrop-blur-sm"
         />
-        <span class="absolute bottom-2 right-2 bg-black/85 text-yellow-400 text-[10px] sm:text-xs font-black px-2 py-0.5 rounded border border-yellow-400/50">
-          절대 선(善) 설계자
+        <span class="absolute bottom-2 right-2 bg-amber-400 text-slate-900 text-[10px] sm:text-xs font-black px-2.5 py-0.5 rounded-full shadow border border-white">
+          ✨ 절대 선(善) 설계자
         </span>
       </div>
     </div>
@@ -183,102 +188,104 @@
        2. 페인 포인트(Pain Point) 자극 및 공포 마케팅
        (히어로 섹션의 누끼 하단부가 이 섹션 상단 우측 위로 겹쳐서 내려옴)
   =========================================== -->
-  <section class="relative z-10 bg-zinc-900 pt-28 pb-20 px-5 border-b-4 border-red-700">
+  <section class="relative z-10 bg-gradient-to-b from-amber-50/70 via-white to-rose-50/50 pt-28 pb-20 px-5 border-b-2 border-amber-200">
     <div class="max-w-xl mx-auto">
-      <!-- 경고 라벨 -->
-      <div class="inline-block bg-red-950 border-2 border-red-600 text-red-400 text-xs sm:text-sm font-black px-3 py-1 rounded mb-6">
-        🚨 긴급 진단: 당신의 선행이 배신당하는 과학적 이유
+      <!-- 진단 라벨 -->
+      <div class="inline-block bg-rose-100 border-2 border-rose-400 text-rose-700 text-xs sm:text-sm font-black px-3.5 py-1 rounded-full mb-6 shadow-sm">
+        🚨 긴급 진단: 당신의 아름다운 선행이 배신당했던 이유
       </div>
 
-      <!-- 체크리스트로 공감 유도 -->
-      <div class="bg-zinc-950/90 border border-zinc-800 rounded-2xl p-5 mb-8 space-y-3 shadow-inner">
-        <p class="text-sm sm:text-base text-zinc-300 flex items-start gap-2.5">
+      <!-- 체크리스트로 공감 유도 (밝은 카드 UI) -->
+      <div class="bg-white border-2 border-amber-200/90 rounded-2xl p-5 sm:p-6 mb-8 space-y-3.5 shadow-[0_10px_30px_rgba(15,23,42,0.06)]">
+        <p class="text-sm sm:text-base text-slate-700 font-medium flex items-start gap-2.5">
           <span class="text-red-500 font-black">✖</span>
           <span>거절을 못 해 남의 일을 대신 해주고도 뒤에서 <span class="marker-yellow">"쟤는 원래 만만하잖아"</span>라는 소리를 들은 적 있습니까?</span>
         </p>
-        <p class="text-sm sm:text-base text-zinc-300 flex items-start gap-2.5">
+        <p class="text-sm sm:text-base text-slate-700 font-medium flex items-start gap-2.5">
           <span class="text-red-500 font-black">✖</span>
           <span>화 한 번 내지 않고 참았는데 오히려 무례한 사람들이 당신 주변에 꼬이고 있습니까?</span>
         </p>
-        <p class="text-sm sm:text-base text-zinc-300 flex items-start gap-2.5">
+        <p class="text-sm sm:text-base text-slate-700 font-medium flex items-start gap-2.5">
           <span class="text-red-500 font-black">✖</span>
-          <span>착하게 살면 복을 받는다는 말을 믿었지만 현실은 <span class="text-red-400 font-bold">감정 쓰레기통</span>이 되어 있진 않습니까?</span>
+          <span>착하게 살면 복을 받는다는 말을 믿었지만 현실은 <span class="text-red-600 font-extrabold">감정 쓰레기통</span>이 되어 있진 않습니까?</span>
         </p>
       </div>
 
       <!-- 지시사항 2: 빨간 글씨 궁서/명조체 경고문 + 노란 형광펜 강조 + 더 커진 폰트 크기 -->
-      <div class="bg-black border-2 border-red-600 rounded-2xl p-6 sm:p-8 shadow-[0_0_40px_rgba(220,38,38,0.3)] scroll-pressure-text" data-pressure="1.03">
+      <div class="bg-rose-50/90 border-2 border-red-500 rounded-2xl p-6 sm:p-8 shadow-[0_15px_35px_rgba(220,38,38,0.12)] scroll-pressure-text" data-pressure="1.03">
         <p class="warning-serif text-[1.45rem] sm:text-3xl font-black leading-[1.55] break-keep">
-          "남을 돕고도 욕을 먹거나 손해만 본 적이 있나요? 그것은 당신의 <span class="marker-yellow">'선함 알고리즘'이 뼈대부터 잘못되었기 때문</span>입니다. 이 페이지를 지금 닫으신다면, <span class="underline decoration-red-500 decoration-4">평생 가짜 착한 사람으로 남들에게 이용만 당하는 지옥 같은 삶</span>을 살게 될 것입니다."
+          "남을 돕고도 욕을 먹거나 손해만 본 적이 있나요? 그것은 당신의 <span class="marker-yellow">'선함 알고리즘'이 뼈대부터 잘못되었기 때문</span>입니다. 이 페이지를 지금 닫으신다면, <span class="underline decoration-red-600 decoration-4">평생 가짜 착한 사람으로 남들에게 이용만 당하는 지옥 같은 삶</span>을 살게 될 것입니다."
         </p>
       </div>
 
-      <p class="mt-6 text-center text-base sm:text-lg text-zinc-300 font-bold">
-        하지만 절망하지 마십시오. 문제는 당신의 인성이 아니라 <span class="marker-yellow-solid">시스템의 부재</span>입니다.
-      </p>
+      <div class="mt-7 bg-sky-50 border border-sky-200 rounded-xl p-4 text-center shadow-sm">
+        <p class="text-base sm:text-lg text-slate-800 font-extrabold">
+          🌤️ 하지만 이제 걱정하지 마십시오! 문제는 당신의 따뜻한 마음이 아니라 <span class="marker-yellow-solid">시스템의 부재</span>였습니다.
+        </p>
+      </div>
     </div>
   </section>
 
   <!-- ==========================================
        3. 권위 구축 및 영웅 서사 (Authority & Storytelling)
-       (이미지는 화면 가로에 꽉 차게 w-full 배치 + 상하단 그라데이션 오버레이)
+       (이미지는 화면 가로에 꽉 차게 w-full 배치 + 상하단 밝은 그라데이션 오버레이)
   =========================================== -->
-  <section class="bg-zinc-950 pt-16 pb-20 border-b border-zinc-800">
+  <section class="bg-gradient-to-b from-white via-sky-50/60 to-white pt-16 pb-20 border-b border-sky-200/80">
     <div class="max-w-xl mx-auto px-5 mb-10 text-center">
-      <span class="text-yellow-400 font-black text-xs sm:text-sm tracking-widest uppercase">
-        AUTHORITY & ORIGIN STORY
+      <span class="inline-block bg-sky-100 text-sky-700 font-black text-xs sm:text-sm px-3 py-1 rounded-full tracking-widest uppercase mb-2">
+        AUTHORITY & MIRACLE STORY
       </span>
       <!-- 스크롤이 내려올수록 점점 더 커지는 헤드라인 -->
-      <h2 class="mt-2 text-3xl sm:text-4xl font-black leading-tight text-white">
-        밑바닥 악인에서 <span class="marker-yellow-solid">'절대 선(善)'의 창시자</span>가 되기까지
+      <h2 class="mt-1 text-3xl sm:text-4xl font-black leading-tight text-slate-900">
+        밑바닥 악인에서 <span class="marker-yellow-solid">'절대 선(善)'의 창시자</span>로 거듭난 기적
       </h2>
     </div>
 
-    <!-- 이미지 1 + 텍스트 1 (가로 꽉 차게 w-full + 상하단 그라데이션 오버레이) -->
-    <div class="relative w-full max-w-3xl mx-auto mb-12 overflow-hidden">
-      <div class="relative w-full min-h-[420px] sm:min-h-[480px] flex flex-col justify-end">
+    <!-- 이미지 1 + 텍스트 1 (가로 꽉 차게 w-full + 상하단 밝은 그라데이션 오버레이) -->
+    <div class="relative w-full max-w-3xl mx-auto mb-12 overflow-hidden shadow-lg sm:rounded-3xl">
+      <div class="relative w-full min-h-[430px] sm:min-h-[490px] flex flex-col justify-end">
         <img
           src="https://via.placeholder.com/800x500/333333/ffffff?text=강연장+스포트라이트"
           onerror="this.onerror=null;this.src='https://placehold.co/800x500/333333/ffffff/png?text=%EA%B0%95%EC%97%B0%EC%9E%A5+%EC%8A%A4%ED%8F%AC%ED%8A%B8%EB%9D%BC%EC%9D%B4%ED%8A%B8';"
           alt="강연장 스포트라이트"
           class="absolute inset-0 w-full h-full object-cover"
         />
-        <!-- 상하단 진한 그라데이션 오버레이 -->
-        <div class="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/35 to-zinc-950"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/80 to-transparent"></div>
+        <!-- 상단 및 하단 밝은 화이트/골드 그라데이션 오버레이 -->
+        <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-transparent"></div>
 
         <!-- 오버레이 텍스트 1 -->
         <div class="relative z-10 p-6 sm:p-10 max-w-xl mx-auto">
-          <span class="inline-block bg-yellow-400 text-black text-xs font-black px-2.5 py-1 rounded mb-3">
-            STEP 01. 뇌과학적 각성
+          <span class="inline-block bg-amber-400 text-slate-900 text-xs font-black px-3 py-1 rounded-full mb-3 shadow-sm">
+            ✨ STEP 01. 뇌과학적 각성과 구원
           </span>
-          <p class="text-[1.4rem] sm:text-2xl font-extrabold leading-relaxed text-white drop-shadow-md break-keep">
+          <p class="text-[1.4rem] sm:text-2xl font-extrabold leading-relaxed text-slate-900 break-keep">
             "저는 원래 길거리에 쓰레기를 버리고 새치기를 일삼던 밑바닥 악인이었습니다. 하지만 <span class="marker-yellow">3년간 산속에서 '선함의 본질'을 뇌과학적으로 분석한 끝에</span>, 이 완벽한 이타주의 프레임워크를 개발했습니다."
           </p>
         </div>
       </div>
     </div>
 
-    <!-- 이미지 2 + 텍스트 2 (가로 꽉 차게 w-full + 상하단 그라데이션 오버레이) -->
-    <div class="relative w-full max-w-3xl mx-auto overflow-hidden">
-      <div class="relative w-full min-h-[420px] sm:min-h-[480px] flex flex-col justify-end">
+    <!-- 이미지 2 + 텍스트 2 (가로 꽉 차게 w-full + 상하단 밝은 하늘빛/화이트 그라데이션 오버레이) -->
+    <div class="relative w-full max-w-3xl mx-auto overflow-hidden shadow-lg sm:rounded-3xl">
+      <div class="relative w-full min-h-[430px] sm:min-h-[490px] flex flex-col justify-end">
         <img
           src="https://via.placeholder.com/800x500/87CEEB/ffffff?text=하늘보며+두팔벌린+사진"
           onerror="this.onerror=null;this.src='https://placehold.co/800x500/87CEEB/ffffff/png?text=%ED%95%98%EB%8A%98%EB%B3%B4%EB%A9%B0+%EB%91%90%ED%8C%94%EB%B2%8C%EB%A6%B0+%EC%82%AC%EC%A7%84';"
           alt="하늘보며 두팔벌린 사진"
           class="absolute inset-0 w-full h-full object-cover"
         />
-        <!-- 상하단 진한 그라데이션 오버레이 -->
-        <div class="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/30 to-zinc-950"></div>
-        <div class="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/85 to-transparent"></div>
+        <!-- 상단 및 하단 밝은 그라데이션 오버레이 -->
+        <div class="absolute inset-0 bg-gradient-to-b from-white via-transparent to-white"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-transparent"></div>
 
         <!-- 오버레이 텍스트 2 -->
         <div class="relative z-10 p-6 sm:p-10 max-w-xl mx-auto">
-          <span class="inline-block bg-red-600 text-white text-xs font-black px-2.5 py-1 rounded mb-3">
-            STEP 02. 우주의 기운과 초월
+          <span class="inline-block bg-sky-500 text-white text-xs font-black px-3 py-1 rounded-full mb-3 shadow-sm">
+            🕊️ STEP 02. 우주의 기운과 초월적 나눔
           </span>
-          <p class="text-[1.5rem] sm:text-3xl font-black leading-relaxed text-white drop-shadow-md break-keep">
-            "우주의 기운을 받아 마침내 <span class="marker-yellow-solid">'절대 선'의 경지</span>에 올랐을 때, 저는 결심했습니다. <span class="warning-serif text-red-400">이 기적 같은 비밀을 저 혼자만 독식할 순 없다고.</span>"
+          <p class="text-[1.5rem] sm:text-3xl font-black leading-relaxed text-slate-900 break-keep">
+            "우주의 기운을 받아 마침내 <span class="marker-yellow-solid">'절대 선'의 경지</span>에 올랐을 때, 저는 결심했습니다. <span class="warning-serif">이 기적 같은 비밀을 저 혼자만 독식할 순 없다고.</span>"
           </p>
         </div>
       </div>
@@ -287,28 +294,28 @@
 
   <!-- ==========================================
        4. 사회적 증거 및 신뢰 획득 (Social Proof)
-       (폴라로이드 사진 스타일 + 모바일 스와이프 & 큼직한 배치 + 극찬 후기)
+       (따뜻한 파스텔 배경 위 두꺼운 흰색 테두리 폴라로이드 + 극찬 후기)
   =========================================== -->
-  <section class="bg-zinc-900 py-20 px-5 border-b border-zinc-800">
+  <section class="bg-gradient-to-b from-sky-50 via-amber-50/50 to-emerald-50/40 py-20 px-5 border-b border-amber-200/80">
     <div class="max-w-xl mx-auto">
       <div class="text-center mb-8">
-        <span class="inline-block bg-emerald-500/20 border border-emerald-400 text-emerald-300 text-xs font-black px-3 py-1 rounded-full mb-3">
-          검증된 도덕적 우위 100% 실화
+        <span class="inline-block bg-emerald-100 border border-emerald-400 text-emerald-800 text-xs font-black px-3.5 py-1 rounded-full mb-3 shadow-sm">
+          🌱 검증된 도덕적 우위 100% 실화
         </span>
         <!-- 스크롤할수록 더 커지는 핵심 텍스트 -->
-        <h2 class="text-[1.7rem] sm:text-4xl font-black leading-snug text-white break-keep scroll-pressure-text" data-pressure="1.05">
+        <h2 class="text-[1.7rem] sm:text-4xl font-black leading-snug text-slate-900 break-keep scroll-pressure-text" data-pressure="1.05">
           "제 수강생들은 이미 <span class="marker-yellow-solid">헐벗고 굶주린 자들과 영혼의 교감</span>을 나누며 압도적인 도덕적 우위를 선점하고 있습니다."
         </h2>
-        <p class="mt-3 text-xs sm:text-sm text-zinc-400">
-          ↔️ 모바일에서 좌우로 스와이프하여 실제 성자(聖者)들의 현장을 확인하세요
+        <p class="mt-3 text-xs sm:text-sm text-slate-600 font-medium">
+          ↔️ 모바일에서 좌우로 스와이프하거나 아래로 내려 실제 성자(聖者)들의 따뜻한 현장을 확인하세요
         </p>
       </div>
 
-      <!-- 폴라로이드 사진 컨테이너: 모바일에서 좌우 스와이프(snap-x) 및 큼직한 카드 배치 -->
+      <!-- 폴라로이드 사진 컨테이너: 두꺼운 흰색 테두리와 그림자 효과 -->
       <div class="flex flex-col sm:flex-row gap-8 overflow-x-auto snap-x snap-mandatory pb-6 pt-2 px-2 no-scrollbar">
         <!-- 폴라로이드 1 -->
-        <div class="polaroid-card rounded-sm transform -rotate-1 hover:rotate-0 transition duration-300 w-full sm:w-1/2 shrink-0 snap-center">
-          <div class="overflow-hidden bg-zinc-200 aspect-square">
+        <div class="polaroid-card rounded-md transform -rotate-1 hover:rotate-0 transition duration-300 w-full sm:w-1/2 shrink-0 snap-center">
+          <div class="overflow-hidden bg-slate-100 aspect-square">
             <img
               src="https://via.placeholder.com/400x400/dddddd/333333?text=아이들과+어깨동무"
               onerror="this.onerror=null;this.src='https://placehold.co/400x400/dddddd/333333/png?text=%EC%95%84%EC%9D%B4%EB%93%A4%EA%B3%BC+%EC%96%B4%EA%B9%A8%EB%8F%99%EB%AC%B4';"
@@ -316,14 +323,14 @@
               class="w-full h-full object-cover"
             />
           </div>
-          <p class="mt-4 text-center font-serif text-zinc-800 font-bold text-base sm:text-lg">
+          <p class="mt-4 text-center font-serif text-slate-800 font-bold text-base sm:text-lg">
             #영혼의_교감 #압도적_자애로움_실습현장
           </p>
         </div>
 
         <!-- 폴라로이드 2 -->
-        <div class="polaroid-card rounded-sm transform rotate-1 hover:rotate-0 transition duration-300 w-full sm:w-1/2 shrink-0 snap-center">
-          <div class="overflow-hidden bg-zinc-200 aspect-square">
+        <div class="polaroid-card rounded-md transform rotate-1 hover:rotate-0 transition duration-300 w-full sm:w-1/2 shrink-0 snap-center">
+          <div class="overflow-hidden bg-slate-100 aspect-square">
             <img
               src="https://via.placeholder.com/400x400/dddddd/333333?text=무료+급식소+나눔"
               onerror="this.onerror=null;this.src='https://placehold.co/400x400/dddddd/333333/png?text=%EB%AC%B4%EB%A3%8C+%EA%B8%89%EC%8B%9D%EC%86%8C+%EB%82%98%EB%88%94';"
@@ -331,28 +338,28 @@
               class="w-full h-full object-cover"
             />
           </div>
-          <p class="mt-4 text-center font-serif text-zinc-800 font-bold text-base sm:text-lg">
+          <p class="mt-4 text-center font-serif text-slate-800 font-bold text-base sm:text-lg">
             #무료_급식소_나눔 #도덕적_기득권_선점
           </p>
         </div>
       </div>
 
-      <!-- 극찬 후기 박스 -->
-      <div class="mt-8 bg-gradient-to-br from-zinc-950 to-zinc-900 border-2 border-yellow-400 rounded-2xl p-6 sm:p-8 shadow-[0_15px_35px_rgba(250,204,21,0.18)] relative">
+      <!-- 극찬 후기 박스 (밝고 희망찬 골드 & 화이트 카드) -->
+      <div class="mt-8 bg-white border-4 border-amber-400 rounded-3xl p-6 sm:p-8 shadow-[0_20px_50px_rgba(245,158,11,0.18)] relative">
         <div class="flex items-center justify-between mb-4">
-          <div class="flex items-center gap-1 text-yellow-400 text-lg sm:text-xl">
+          <div class="flex items-center gap-1 text-amber-400 text-xl sm:text-2xl drop-shadow-sm">
             <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
           </div>
-          <span class="bg-yellow-400 text-black text-xs font-black px-2.5 py-1 rounded">
-            실제 수강생 인증
+          <span class="bg-amber-100 border border-amber-400 text-amber-900 text-xs font-black px-3 py-1 rounded-full">
+            👼 실제 수강생 감동 인증
           </span>
         </div>
 
-        <blockquote class="text-[1.55rem] sm:text-3xl font-black leading-snug text-white mb-4 break-keep">
+        <blockquote class="text-[1.55rem] sm:text-3xl font-black leading-snug text-slate-900 mb-4 break-keep">
           "강의 듣고 다음 날 <span class="marker-yellow">길에서 주운 5백 원을 경찰서에 갖다 줬습니다.</span> 제 인생의 격이 180도 바뀌었습니다!"
         </blockquote>
 
-        <p class="text-right text-sm sm:text-base font-extrabold text-yellow-400">
+        <p class="text-right text-sm sm:text-base font-extrabold text-amber-700">
           - 익명의 수강생 A (만족도 100%)
         </p>
       </div>
@@ -361,98 +368,99 @@
 
   <!-- ==========================================
        5. 가치 산정 (Value Stacking) 및 파격 제안
-       (스크롤 최하단으로 갈수록 핵심 폰트가 최대 크기로 폭발)
+       (스크롤 최하단으로 갈수록 핵심 폰트가 최대 크기로 확대)
   =========================================== -->
-  <section class="bg-gradient-to-b from-zinc-950 via-red-950/25 to-zinc-950 pt-20 pb-24 px-5">
+  <section class="bg-gradient-to-b from-white via-amber-50/70 to-sky-50 pt-20 pb-24 px-5">
     <div class="max-w-xl mx-auto">
       <div class="text-center mb-10">
         <p class="warning-serif text-xl sm:text-2xl font-black mb-2">
           ⚠️ 지금 결단하지 않으면 영원히 '호구'로 남습니다 ⚠️
         </p>
-        <h2 class="text-3xl sm:text-5xl font-black leading-tight text-white break-keep scroll-pressure-text" data-pressure="1.08">
-          당신을 즉시 <span class="marker-yellow-solid">'절대 선(善)'</span>으로 개조할 압도적 천국 패키지
+        <h2 class="text-3xl sm:text-5xl font-black leading-tight text-slate-900 break-keep scroll-pressure-text" data-pressure="1.08">
+          당신을 즉시 <span class="marker-yellow-solid">'절대 선(善)'</span>으로 개조할 축복의 천국 패키지
         </h2>
       </div>
 
-      <!-- Value Stacking 리스트 -->
+      <!-- Value Stacking 리스트 (화사한 화이트 & 골드 카드) -->
       <div class="space-y-4 mb-10">
         <!-- 구성품 1 -->
-        <div class="bg-zinc-900/95 border-2 border-zinc-700 hover:border-yellow-400 transition rounded-2xl p-5 sm:p-6 shadow-xl">
+        <div class="bg-white border-2 border-amber-300 hover:border-amber-500 transition rounded-2xl p-5 sm:p-6 shadow-md">
           <div class="flex items-start justify-between gap-3">
             <div>
-              <span class="inline-block bg-red-600 text-white text-[11px] font-black px-2 py-0.5 rounded mb-1.5">
+              <span class="inline-block bg-sky-600 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full mb-1.5">
                 CORE SYSTEM 01
               </span>
-              <h3 class="text-xl sm:text-2xl font-black text-white leading-snug">
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
                 천국행 프리패스 마인드셋 VOD
               </h3>
             </div>
-            <span class="shrink-0 text-right text-yellow-400 font-black text-sm sm:text-base">
+            <span class="shrink-0 text-right text-amber-700 bg-amber-100 px-2.5 py-1 rounded-lg font-black text-xs sm:text-sm">
               (가치 50,000,000원 상당)
             </span>
           </div>
-          <p class="mt-2 text-xs sm:text-sm text-zinc-400">
-            남에게 휘둘리지 않고 도덕적 우월감만 100% 추출하는 뇌과학적 선행 알고리즘 전수
+          <p class="mt-2 text-xs sm:text-sm text-slate-600 font-medium">
+            남에게 휘둘리지 않고 도덕적 우월감과 평온함만 100% 추출하는 뇌과학적 선행 알고리즘 전수
           </p>
         </div>
 
         <!-- 구성품 2 -->
-        <div class="bg-zinc-900/95 border-2 border-zinc-700 hover:border-yellow-400 transition rounded-2xl p-5 sm:p-6 shadow-xl">
+        <div class="bg-white border-2 border-amber-300 hover:border-amber-500 transition rounded-2xl p-5 sm:p-6 shadow-md">
           <div class="flex items-start justify-between gap-3">
             <div>
-              <span class="inline-block bg-red-600 text-white text-[11px] font-black px-2 py-0.5 rounded mb-1.5">
+              <span class="inline-block bg-emerald-600 text-white text-[11px] font-black px-2.5 py-0.5 rounded-full mb-1.5">
                 SECRET NETWORK 02
               </span>
-              <h3 class="text-xl sm:text-2xl font-black text-white leading-snug">
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
                 1:1 뒷담화 방지 시크릿 디스코드 입장권
               </h3>
             </div>
-            <span class="shrink-0 text-right text-yellow-400 font-black text-sm sm:text-base">
+            <span class="shrink-0 text-right text-amber-700 bg-amber-100 px-2.5 py-1 rounded-lg font-black text-xs sm:text-sm">
               (가치 10,000,000원 상당)
             </span>
           </div>
-          <p class="mt-2 text-xs sm:text-sm text-zinc-400">
-            상위 0.1% 선인들과 실시간으로 선행 점수를 상호 인증하고 악인의 접근을 원천 차단하는 결사대
+          <p class="mt-2 text-xs sm:text-sm text-slate-600 font-medium">
+            상위 0.1% 선인들과 실시간으로 선행 점수를 상호 인증하고 악인의 접근을 원천 차단하는 성스러운 연대
           </p>
         </div>
 
         <!-- 구성품 3 -->
-        <div class="bg-zinc-900/95 border-2 border-zinc-700 hover:border-yellow-400 transition rounded-2xl p-5 sm:p-6 shadow-xl">
+        <div class="bg-white border-2 border-amber-300 hover:border-amber-500 transition rounded-2xl p-5 sm:p-6 shadow-md">
           <div class="flex items-start justify-between gap-3">
             <div>
-              <span class="inline-block bg-red-600 text-white text-[11px] font-black px-2 py-0.5 rounded mb-1.5">
+              <span class="inline-block bg-amber-500 text-slate-900 text-[11px] font-black px-2.5 py-0.5 rounded-full mb-1.5">
                 ULTIMATE BONUS 03
               </span>
-              <h3 class="text-xl sm:text-2xl font-black text-white leading-snug">
+              <h3 class="text-xl sm:text-2xl font-black text-slate-900 leading-snug">
                 면죄부 평생 발급권
               </h3>
             </div>
-            <span class="shrink-0 text-right text-yellow-400 font-black text-sm sm:text-base">
+            <span class="shrink-0 text-right text-amber-700 bg-amber-100 px-2.5 py-1 rounded-lg font-black text-xs sm:text-sm">
               (가치 30,000,000원 상당)
             </span>
           </div>
-          <p class="mt-2 text-xs sm:text-sm text-zinc-400">
+          <p class="mt-2 text-xs sm:text-sm text-slate-600 font-medium">
             살면서 저지른 사소한 새치기·분리수거 누락까지 즉시 정화해 주는 평생 양심 케어 라이선스
           </p>
         </div>
       </div>
 
-      <!-- 가격표 & 파격 제안 박스 (최대 폰트 압박감) -->
-      <div class="bg-black border-4 border-yellow-400 rounded-3xl p-6 sm:p-10 text-center shadow-[0_0_60px_rgba(250,204,21,0.3)] mb-12 relative overflow-hidden">
-        <div class="inline-block bg-red-600 text-white text-xs sm:text-sm font-black px-4 py-1 rounded-full mb-4 animate-bounce">
+      <!-- 가격표 & 파격 제안 박스 (최대 폰트 압박감 + 화사한 황금빛 카드) -->
+      <div class="bg-gradient-to-br from-white via-amber-50 to-yellow-100/80 border-4 border-amber-400 rounded-3xl p-6 sm:p-10 text-center shadow-[0_25px_60px_rgba(245,158,11,0.25)] mb-12 relative overflow-hidden">
+        <div class="inline-block bg-red-600 text-white text-xs sm:text-sm font-black px-4 py-1.5 rounded-full mb-4 shadow animate-bounce">
           🔥 오늘 자정 이후 90,000,000원으로 정상가 환원 🔥
         </div>
 
-        <p class="text-lg sm:text-2xl text-zinc-300 font-bold mb-2">
-          총 가치 <del class="text-red-500 font-black decoration-2">90,000,000원</del>
+        <p class="text-lg sm:text-2xl text-slate-700 font-bold mb-2">
+          총 가치 <del class="text-red-600 font-black decoration-2">90,000,000원</del>
         </p>
 
-        <div class="my-4">
-          <p class="text-sm sm:text-base text-yellow-300 font-extrabold mb-1">
+        <div class="my-5 bg-white/90 border-2 border-amber-300 rounded-2xl py-5 px-3 shadow-inner">
+          <p class="text-sm sm:text-base text-amber-800 font-extrabold mb-1">
             ↓ 오늘 하루만 드리는 미친 특가 (99.6% 할인) ↓
           </p>
-          <p class="text-[2.35rem] sm:text-6xl font-black text-yellow-400 tracking-tight leading-none drop-shadow-[0_4px_20px_rgba(250,204,21,0.5)]">
-            300,000원 <span class="text-lg sm:text-2xl text-red-400 font-extrabold block sm:inline mt-2 sm:mt-0">(99.6% 할인)</span>
+          <p class="text-[2.35rem] sm:text-6xl font-black text-slate-900 tracking-tight leading-none">
+            <span class="marker-yellow">300,000원</span>
+            <span class="text-lg sm:text-2xl text-red-600 font-extrabold block sm:inline mt-2 sm:mt-0">(99.6% 할인)</span>
           </p>
         </div>
 
@@ -462,7 +470,7 @@
 
         <!-- 대형 결제 버튼 -->
         <a href="#checkout-section-placeholder"
-           class="block w-full bg-gradient-to-r from-red-600 via-red-500 to-yellow-500 hover:from-red-500 hover:to-yellow-400 text-white font-black text-xl sm:text-3xl py-5 sm:py-6 px-4 rounded-2xl shadow-2xl animate-pulseGlow transition transform active:scale-95">
+           class="block w-full bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 hover:from-amber-400 hover:to-rose-400 text-white font-black text-xl sm:text-3xl py-5 sm:py-6 px-4 rounded-2xl shadow-xl animate-pulseGlow transition transform active:scale-95">
           💳 지금 300,000원에 '절대 선' 평생 소유하기
         </a>
       </div>
@@ -479,16 +487,16 @@
   <div id="social-proof-toast"
        aria-live="polite"
        class="fixed bottom-24 left-3 right-3 sm:right-auto sm:left-5 sm:max-w-sm z-40 transition-all duration-300 transform translate-y-0 opacity-100 pointer-events-none">
-    <div class="bg-white/95 backdrop-blur-md text-zinc-900 border-2 border-yellow-400 rounded-xl p-3.5 shadow-[0_12px_30px_rgba(0,0,0,0.65)] flex items-center gap-3">
-      <div class="w-10 h-10 shrink-0 rounded-full bg-red-600 text-white flex items-center justify-center font-black text-lg shadow">
+    <div class="bg-white/95 backdrop-blur-md text-slate-900 border-2 border-amber-400 rounded-2xl p-3.5 shadow-[0_15px_35px_rgba(15,23,42,0.18)] flex items-center gap-3">
+      <div class="w-10 h-10 shrink-0 rounded-full bg-gradient-to-br from-amber-300 to-yellow-400 text-slate-900 flex items-center justify-center font-black text-xl shadow-sm border border-white">
         👼
       </div>
       <div class="min-w-0 flex-1">
         <div class="flex items-center gap-1.5">
           <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
-          <span class="text-[11px] font-extrabold text-emerald-700">실시간 결제 완료 인증</span>
+          <span class="text-[11px] font-extrabold text-emerald-700">실시간 천국행 탑승 인증</span>
         </div>
-        <p id="social-proof-text" class="text-xs sm:text-sm font-black text-zinc-900 truncate">
+        <p id="social-proof-text" class="text-xs sm:text-sm font-black text-slate-900 truncate">
           방금 서울의 김**님이 '천사 패키지'를 결제하셨습니다
         </p>
       </div>
@@ -497,25 +505,25 @@
 
   <!-- ==========================================
        CRO 2: 희소성 및 긴박감 (화면 최하단 고정 카운트다운 타이머 바)
-       15분 00초부터 시작하여 스크롤을 끈질기게 따라다님
+       15분 00초부터 시작하여 스크롤을 끈질기게 따라다님 (밝고 선명한 화이트 & 골드 바)
   =========================================== -->
-  <div class="fixed bottom-0 left-0 right-0 z-50 bg-zinc-950/95 backdrop-blur-md border-t-2 border-red-600 shadow-[0_-10px_30px_rgba(220,38,38,0.35)] px-3 py-2.5 sm:py-3">
+  <div class="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t-2 border-amber-400 shadow-[0_-10px_30px_rgba(15,23,42,0.12)] px-3 py-2.5 sm:py-3">
     <div class="max-w-xl mx-auto flex items-center justify-between gap-2 sm:gap-4">
       <div class="flex flex-col">
-        <span class="text-[11px] sm:text-xs font-extrabold text-red-400 flex items-center gap-1">
-          <span class="inline-block w-2 h-2 rounded-full bg-red-500 animate-ping"></span>
+        <span class="text-[11px] sm:text-xs font-extrabold text-rose-600 flex items-center gap-1">
+          <span class="inline-block w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
           99.6% 특가 마감 임박 (잔여 3자리)
         </span>
         <div class="flex items-baseline gap-1.5">
-          <span class="text-xs sm:text-sm text-zinc-300 font-bold">남은 시간:</span>
-          <span id="countdown-timer" class="font-mono text-xl sm:text-2xl font-black text-yellow-400 tracking-wider">
+          <span class="text-xs sm:text-sm text-slate-700 font-bold">남은 시간:</span>
+          <span id="countdown-timer" class="font-mono text-xl sm:text-2xl font-black text-red-600 tracking-wider">
             15:00
           </span>
         </div>
       </div>
 
       <a href="#checkout-section-placeholder"
-         class="shrink-0 bg-gradient-to-r from-red-600 to-orange-500 hover:from-red-500 hover:to-yellow-500 text-white font-black text-sm sm:text-base px-4 sm:px-6 py-3 rounded-xl shadow-lg animate-pulseGlow active:scale-95 transition">
+         class="shrink-0 bg-gradient-to-r from-amber-500 via-orange-500 to-rose-500 hover:from-amber-400 hover:to-rose-400 text-white font-black text-sm sm:text-base px-4 sm:px-6 py-3 rounded-xl shadow-md animate-pulseGlow active:scale-95 transition">
         지금 즉시 결제하기 →
       </a>
     </div>
@@ -542,7 +550,7 @@
         if (remainingSeconds > 0) {
           remainingSeconds--;
         } else {
-          remainingSeconds = 15 * 60; // 마감 후에도 긴박감 유지를 위해 재시작
+          remainingSeconds = 15 * 60;
         }
       }
 
@@ -553,7 +561,6 @@
       const toastEl = document.getElementById('social-proof-toast');
       const toastTextEl = document.getElementById('social-proof-text');
 
-      // 지시사항의 핵심 문구를 기본 포함하며 생동감을 주는 리스트
       const buyers = [
         "방금 서울의 김**님이 '천사 패키지'를 결제하셨습니다",
         "방금 강남의 박**님이 '천사 패키지'를 결제하셨습니다",
@@ -567,7 +574,6 @@
       setInterval(function () {
         if (!toastEl || !toastTextEl) return;
 
-        // 살짝 내려갔다가 새 메시지와 함께 즉시 팝업되는 애니메이션
         toastEl.classList.remove('translate-y-0', 'opacity-100');
         toastEl.classList.add('translate-y-3', 'opacity-0');
 
