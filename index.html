@@ -11,7 +11,7 @@
   <!-- Google Fonts: 정갈하고 문학적인 명조체(Noto Serif KR, Gowun Batang) & 미니멀 본문 보조(Noto Sans KR) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500&family=Noto+Serif+KR:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Noto+Sans+KR:wght@300;400;500;600&family=Noto+Serif+KR:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
   <script>
     tailwind.config = {
@@ -19,7 +19,7 @@
         extend: {
           fontFamily: {
             serif: ['"Noto Serif KR"', '"Gowun Batang"', 'serif'],
-            sans: ['"Noto Sans KR"', 'sans-serif'],
+            sans: ['"Noto Sans KR"', '-apple-system', 'BlinkMacSystemFont', 'sans-serif'],
           },
           colors: {
             offwhite: '#F9F9F9',
@@ -59,21 +59,49 @@
     .delay-200 { transition-delay: 0.28s; }
     .delay-300 { transition-delay: 0.42s; }
 
-    /* 첨부 사진이 차분한 오프화이트 무드에 자연스럽게 스며들도록 처리 */
-    .calm-photo-tone {
-      filter: contrast(0.96) saturate(0.88) brightness(0.99);
-      transition: transform 1.6s cubic-bezier(0.16, 1, 0.3, 1), filter 1.2s ease;
+    /* =====================================================
+       Apple-Style 3D Depth Stage (입체 레이어링 시스템)
+       1. 후면: 입체 베젤 스테이지 + 대형 백그라운드 타이포그래피
+       2. 중경: 프레임 밖으로 튀어나오는(Pop-out) 인물 누끼 + 다중 입체 그림자
+       3. 전경: 인물 하단을 감싸는 프로스티드 글래스(Frosted Glass) 캡션 바
+    ====================================================== */
+    .apple-depth-stage {
+      position: relative;
+      background: linear-gradient(165deg, #FFFFFF 0%, #F3F2EE 52%, #E7E5DF 100%);
+      border-radius: 32px;
+      box-shadow:
+        0 30px 60px -15px rgba(20, 20, 18, 0.08),
+        0 10px 24px -8px rgba(20, 20, 18, 0.04),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+        0 0 0 1px rgba(51, 51, 51, 0.06);
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.6s ease;
     }
 
-    .calm-photo-wrap:hover .calm-photo-tone {
-      transform: scale(1.015);
-      filter: contrast(0.98) saturate(0.94) brightness(1);
+    /* 인물 뒤에서 입체감을 살려주는 은은한 스튜디오 조명 구체 */
+    .apple-studio-glow {
+      background: radial-gradient(circle, rgba(255, 250, 238, 0.95) 0%, rgba(236, 229, 216, 0.45) 55%, rgba(249, 249, 249, 0) 75%);
     }
 
-    /* 누끼 이미지 하단이 배경색(#F9F9F9 / #F2F1ED)에 부드럽게 녹아드는 마스크 */
-    .soft-bottom-mask {
-      -webkit-mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
-      mask-image: linear-gradient(to bottom, black 78%, transparent 100%);
+    /* 인물 누끼 전용 Apple 스타일 다중 입체 그림자 (배경 판에서 떠 있는 효과) */
+    .apple-cutout-3d {
+      filter:
+        drop-shadow(0 28px 28px rgba(18, 18, 16, 0.20))
+        drop-shadow(0 8px 12px rgba(18, 18, 16, 0.10))
+        contrast(0.99) saturate(0.94);
+      will-change: transform;
+      transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* 전경 프로스티드 글래스(Apple Liquid Glass) 카드 */
+    .apple-glass-bar {
+      background: rgba(255, 255, 255, 0.74);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      box-shadow:
+        0 18px 40px -10px rgba(20, 20, 18, 0.10),
+        0 2px 8px rgba(20, 20, 18, 0.04);
     }
 
     /* 미니멀 인풋 포커스 스타일 */
@@ -120,7 +148,7 @@
 
   <!-- =========================================================
        2. ESSAY SECTIONS (신뢰 구축 및 공감)
-       스크롤에 따라 [에세이 글귀]와 [첨부 이미지 2장]이 교차하며 등장
+       스크롤에 따라 [에세이 글귀]와 [Apple 스타일 3D 입체 인물 사진]이 교차 등장
   ========================================================== -->
   <main class="w-full">
 
@@ -145,21 +173,57 @@
       </div>
     </section>
 
-    <!-- Visual 01: 첨부 이미지 1 (따뜻한 오후 햇살 속 이정인) -->
-    <section class="py-20 sm:py-32 px-6">
-      <div class="max-w-md mx-auto">
-        <figure class="fade-up calm-photo-wrap">
-          <div class="relative overflow-hidden rounded-sm bg-warmgray p-5 sm:p-8 border border-hairline shadow-[0_20px_50px_rgba(0,0,0,0.03)]">
-            <img
-              src="./hero-instructor.jpg"
-              alt="오후의 빛 속에 서 있는 이정인"
-              class="w-full aspect-[3/4] object-cover object-top calm-photo-tone rounded-[2px]"
-            />
+    <!-- Visual 01: 첫 번째 첨부 누끼 이미지 (Apple iOS Depth Effect 3D 입체 연출) -->
+    <section class="py-24 sm:py-36 px-6">
+      <div class="max-w-md mx-auto pt-12 sm:pt-16">
+        <figure class="fade-up relative">
+
+          <!-- Apple 3D Stage Card (상단 프레임 밖으로 인물의 머리와 어깨가 입체적으로 돌출) -->
+          <div class="apple-depth-stage relative pt-10 pb-6 px-6 sm:px-8 flex flex-col items-center overflow-visible">
+
+            <!-- Layer 1 (Back): 스튜디오 후광 & 인물 등 뒤로 지나가는 Apple 스타일 대형 타이포그래피 -->
+            <div class="pointer-events-none absolute inset-0 overflow-hidden rounded-[32px] flex flex-col items-center justify-start pt-7">
+              <div class="apple-studio-glow w-72 h-72 sm:w-80 sm:h-80 rounded-full -mt-6"></div>
+              <span
+                data-parallax="-0.04"
+                class="parallax-layer absolute top-6 font-serif text-[4.2rem] sm:text-[5.2rem] font-light tracking-[0.18em] text-charcoal/[0.06] select-none leading-none"
+              >
+                GOODNESS
+              </span>
+            </div>
+
+            <!-- Layer 2 (Middle - Pop-out 3D Subject): 프레임 상단 경계선 위로 솟아오른 인물 누끼 -->
+            <div
+              data-parallax="0.05"
+              class="parallax-layer relative z-20 -mt-24 sm:-mt-28 w-64 sm:w-72 flex justify-center pointer-events-none select-none"
+            >
+              <img
+                src="./first-portrait.png"
+                alt="고요한 시선으로 서 있는 이정인"
+                class="w-full h-auto object-contain apple-cutout-3d"
+              />
+            </div>
+
+            <!-- Layer 3 (Foreground - Floating Glass Bar): 인물 하단 위로 떠 있는 반투명 글래스 캡션 -->
+            <div
+              data-parallax="0.09"
+              class="parallax-layer apple-glass-bar relative z-30 -mt-8 w-full rounded-2xl px-5 py-4 flex items-center justify-between"
+            >
+              <div>
+                <p class="font-sans text-[10px] tracking-[0.22em] uppercase text-muted">
+                  Portrait 01 · Quiet Gaze
+                </p>
+                <p class="text-sm sm:text-base font-medium text-charcoal mt-0.5">
+                  흔들리지 않는 내면의 고요
+                </p>
+              </div>
+              <span class="font-sans text-xs font-medium text-charcoal/70 border border-charcoal/15 rounded-full px-3 py-1 bg-white/60">
+                이정인
+              </span>
+            </div>
+
           </div>
-          <figcaption class="fade-up delay-100 mt-4 flex items-center justify-between font-sans text-[11px] tracking-wider text-muted">
-            <span>FIG 01. 오후의 산책, 고요한 응시</span>
-            <span>이정인 (Lee Jung-in)</span>
-          </figcaption>
+
         </figure>
       </div>
     </section>
@@ -185,21 +249,56 @@
       </div>
     </section>
 
-    <!-- Visual 02: 첨부 이미지 2 (열린 손과 온화한 미소의 인물 사진) -->
-    <section class="py-20 sm:py-32 px-6 bg-warmgray/60 border-y border-hairline/80">
-      <div class="max-w-lg mx-auto">
-        <figure class="fade-up calm-photo-wrap">
-          <div class="relative overflow-hidden rounded-sm bg-gradient-to-b from-[#ECEAE4] via-[#F4F3EF] to-[#F9F9F9] pt-10 px-6 border border-hairline shadow-[0_20px_50px_rgba(0,0,0,0.03)] flex flex-col items-center">
-            <img
-              src="./saint-instructor-cutout.png"
-              alt="기꺼이 손을 내미는 이정인"
-              class="w-full max-w-sm h-auto object-contain calm-photo-tone soft-bottom-mask select-none"
-            />
+    <!-- Visual 02: 두 번째 첨부 누끼 이미지 (손길이 프레임 밖으로 입체적으로 뻗어나오는 Apple 3D Stage) -->
+    <section class="py-24 sm:py-36 px-6 bg-warmgray/50 border-y border-hairline/80">
+      <div class="max-w-lg mx-auto pt-12 sm:pt-16">
+        <figure class="fade-up relative">
+
+          <div class="apple-depth-stage relative pt-8 pb-6 px-5 sm:px-8 flex flex-col items-center overflow-visible">
+
+            <!-- Layer 1 (Back): 스튜디오 링 조명 & 배경 타이포그래피 -->
+            <div class="pointer-events-none absolute inset-0 overflow-hidden rounded-[32px] flex flex-col items-center justify-start pt-8">
+              <div class="apple-studio-glow w-80 h-80 sm:w-96 sm:h-96 rounded-full -mt-8"></div>
+              <span
+                data-parallax="-0.04"
+                class="parallax-layer absolute top-7 font-serif text-[4.2rem] sm:text-[5.4rem] font-light tracking-[0.22em] text-charcoal/[0.06] select-none leading-none"
+              >
+                EMBRACE
+              </span>
+            </div>
+
+            <!-- Layer 2 (Middle - Pop-out 3D Subject): 상단과 좌측 프레임 경계 밖으로 입체감 있게 뻗어 나오는 손길 -->
+            <div
+              data-parallax="0.05"
+              class="parallax-layer relative z-20 -mt-20 sm:-mt-24 -ml-3 sm:-ml-6 w-[106%] max-w-md flex justify-center pointer-events-none select-none"
+            >
+              <img
+                src="./saint-instructor-cutout.png"
+                alt="따뜻하게 손을 내미는 이정인"
+                class="w-full h-auto object-contain apple-cutout-3d"
+              />
+            </div>
+
+            <!-- Layer 3 (Foreground - Floating Glass Bar) -->
+            <div
+              data-parallax="0.09"
+              class="parallax-layer apple-glass-bar relative z-30 -mt-6 w-full rounded-2xl px-5 py-4 flex items-center justify-between"
+            >
+              <div>
+                <p class="font-sans text-[10px] tracking-[0.22em] uppercase text-muted">
+                  Portrait 02 · Open Hand
+                </p>
+                <p class="text-sm sm:text-base font-medium text-charcoal mt-0.5">
+                  조건 없이 내어주는 다정한 손길
+                </p>
+              </div>
+              <span class="font-sans text-xs font-medium text-charcoal/70 border border-charcoal/15 rounded-full px-3 py-1 bg-white/60">
+                Peace
+              </span>
+            </div>
+
           </div>
-          <figcaption class="fade-up delay-100 mt-4 flex items-center justify-between font-sans text-[11px] tracking-wider text-muted">
-            <span>FIG 02. 조건 없이 내어주는 손길에 대하여</span>
-            <span>Openness &amp; Peace</span>
-          </figcaption>
+
         </figure>
       </div>
     </section>
@@ -253,7 +352,7 @@
         </div>
 
         <!-- 미니멀 커리큘럼 노트 -->
-        <div class="fade-up delay-200 bg-offwhite border border-hairline p-8 sm:p-12 space-y-8 shadow-[0_15px_40px_rgba(0,0,0,0.02)]">
+        <div class="fade-up delay-200 bg-offwhite border border-hairline rounded-2xl p-8 sm:p-12 space-y-8 shadow-[0_15px_40px_rgba(0,0,0,0.02)]">
           <div class="border-b border-hairline pb-4 flex items-center justify-between">
             <span class="font-sans text-xs tracking-[0.2em] uppercase text-muted">Curriculum</span>
             <span class="font-sans text-xs text-muted">총 4부작 프라이빗 영상 및 사유 노트</span>
@@ -339,7 +438,7 @@
         </div>
 
         <!-- 인라인 결제 폼 카드 -->
-        <form id="inline-checkout-form" class="fade-up delay-100 bg-white border border-hairline p-7 sm:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.03)] space-y-6">
+        <form id="inline-checkout-form" class="fade-up delay-100 bg-white border border-hairline rounded-2xl p-7 sm:p-10 shadow-[0_20px_60px_rgba(0,0,0,0.03)] space-y-6">
 
           <!-- 프로그램 요약 헤더 -->
           <div class="pb-6 border-b border-hairline flex items-baseline justify-between">
@@ -366,7 +465,7 @@
               type="text"
               required
               placeholder="홍길동"
-              class="minimal-input w-full px-4 py-3 text-sm font-sans rounded-[2px]"
+              class="minimal-input w-full px-4 py-3 text-sm font-sans rounded-lg"
             />
           </div>
 
@@ -380,7 +479,7 @@
               type="email"
               required
               placeholder="peace@example.com"
-              class="minimal-input w-full px-4 py-3 text-sm font-sans rounded-[2px]"
+              class="minimal-input w-full px-4 py-3 text-sm font-sans rounded-lg"
             />
           </div>
 
@@ -404,7 +503,7 @@
                 maxlength="19"
                 required
                 placeholder="카드 번호 (0000 0000 0000 0000)"
-                class="minimal-input w-full px-4 py-3 text-sm font-sans tracking-wider rounded-[2px]"
+                class="minimal-input w-full px-4 py-3 text-sm font-sans tracking-wider rounded-lg"
               />
             </div>
 
@@ -417,7 +516,7 @@
                 maxlength="5"
                 required
                 placeholder="유효기간 (MM/YY)"
-                class="minimal-input w-full px-4 py-3 text-sm font-sans tracking-wider rounded-[2px]"
+                class="minimal-input w-full px-4 py-3 text-sm font-sans tracking-wider rounded-lg"
               />
               <input
                 id="card-cvc"
@@ -426,7 +525,7 @@
                 maxlength="3"
                 required
                 placeholder="CVC (뒷면 3자리)"
-                class="minimal-input w-full px-4 py-3 text-sm font-sans tracking-wider rounded-[2px]"
+                class="minimal-input w-full px-4 py-3 text-sm font-sans tracking-wider rounded-lg"
               />
             </div>
           </div>
@@ -441,13 +540,13 @@
             <button
               type="submit"
               id="submit-btn"
-              class="w-full bg-charcoal hover:bg-black text-offwhite font-serif text-sm sm:text-base tracking-wide py-4 px-6 rounded-[2px] transition duration-300 shadow-sm active:scale-[0.99]"
+              class="w-full bg-charcoal hover:bg-black text-offwhite font-serif text-sm sm:text-base tracking-wide py-4 px-6 rounded-xl transition duration-300 shadow-sm active:scale-[0.99]"
             >
               [ 평온에 이르는 여정 시작하기 - ₩180,000 ]
             </button>
           </div>
 
-          <!-- 결제 완료 피드백 메시지 (제출 시 부드럽게 표시) -->
+          <!-- 결제 완료 피드백 메시지 -->
           <div id="checkout-feedback" class="hidden pt-4 border-t border-hairline text-center space-y-2">
             <p class="text-sm sm:text-base text-charcoal font-medium">
               귀한 걸음을 내디뎌 주셔서 감사합니다.
@@ -466,11 +565,11 @@
   ========================================================== -->
   <footer class="py-24 px-6 bg-warmgray/70 border-t border-hairline text-center">
     <div class="fade-up max-w-md mx-auto space-y-6">
-      <div class="w-14 h-14 mx-auto rounded-full overflow-hidden border border-hairline shadow-sm">
+      <div class="w-16 h-16 mx-auto rounded-full bg-gradient-to-b from-white to-warmgray border border-hairline shadow-md overflow-hidden flex items-end justify-center pt-1">
         <img
-          src="./hero-instructor.jpg"
+          src="./first-portrait.png"
           alt="이정인"
-          class="w-full h-full object-cover object-top calm-photo-tone"
+          class="w-14 h-14 object-contain object-bottom"
         />
       </div>
 
@@ -493,7 +592,8 @@
   <!-- =========================================================
        JavaScript:
        1. 스크롤 시 서서히 나타나는 Fade-in & Slide-up 인터랙션
-       2. 카드 번호 및 유효기간 자동 포맷팅 & 우아한 결제 완료 응답
+       2. Apple 스타일 다중 레이어 패럴랙스(Parallax Depth) 효과
+       3. 카드 번호 및 유효기간 자동 포맷팅 & 결제 완료 응답
   ========================================================== -->
   <script>
     (function () {
@@ -524,7 +624,23 @@
         });
       }
 
-      // 2. 카드 번호 및 유효기간 입력 자동 포맷팅
+      // 2. Apple-style Multi-Layer Scroll Parallax (배경 타이포 / 인물 누끼 / 전경 글래스 바의 미세 속도차 입체감)
+      const parallaxLayers = document.querySelectorAll('.parallax-layer');
+      function updateParallax() {
+        const vh = window.innerHeight || document.documentElement.clientHeight;
+        parallaxLayers.forEach(function (layer) {
+          const rect = layer.parentElement.getBoundingClientRect();
+          const centerOffset = (rect.top + rect.height / 2) - vh / 2;
+          const speed = parseFloat(layer.getAttribute('data-parallax') || '0');
+          const yMove = Math.max(-24, Math.min(24, -centerOffset * speed));
+          layer.style.transform = 'translate3d(0, ' + yMove.toFixed(1) + 'px, 0)';
+        });
+      }
+
+      window.addEventListener('scroll', updateParallax, { passive: true });
+      updateParallax();
+
+      // 3. 카드 번호 및 유효기간 입력 자동 포맷팅
       const cardInput = document.getElementById('card-number');
       const expiryInput = document.getElementById('card-expiry');
       const form = document.getElementById('inline-checkout-form');
@@ -551,7 +667,7 @@
         });
       }
 
-      // 3. 인라인 결제 제출 인터랙션
+      // 4. 인라인 결제 제출 인터랙션
       if (form) {
         form.addEventListener('submit', function (e) {
           e.preventDefault();
