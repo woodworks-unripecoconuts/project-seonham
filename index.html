@@ -60,6 +60,59 @@
     .delay-300 { transition-delay: 0.42s; }
 
     /* =====================================================
+       01 · THE PACIFIST 전용: 서서히 밝아지는 타이틀 & 따뜻한 포근한 Glow 연출
+    ====================================================== */
+    .pacifist-title-reveal {
+      opacity: 0;
+      transform: translateY(14px);
+      filter: brightness(0.88);
+      transition: opacity 1.2s ease-out,
+                  transform 1.2s ease-out,
+                  filter 1.2s ease-out,
+                  text-shadow 1.2s ease-out;
+      will-change: opacity, transform, filter;
+    }
+
+    .pacifist-title-reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+      filter: brightness(1);
+      text-shadow: 0 2px 26px rgba(251, 207, 164, 0.42);
+    }
+
+    /* 타이틀 주변으로 번지는 웜 아이보리 · 크림 앰버 · 은은한 피치 톤의 Glow */
+    .pacifist-warm-glow {
+      opacity: 0;
+      transform: scale(0.82);
+      background: radial-gradient(
+        ellipse at center,
+        rgba(255, 246, 230, 0.95) 0%,
+        rgba(254, 226, 192, 0.62) 36%,
+        rgba(253, 213, 196, 0.36) 62%,
+        rgba(249, 249, 249, 0) 80%
+      );
+      transition: opacity 1.4s ease-out, transform 1.6s ease-out;
+      will-change: opacity, transform;
+    }
+
+    .pacifist-warm-glow.is-visible {
+      opacity: 1;
+      transform: scale(1);
+      animation: warmGlowPulse 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes warmGlowPulse {
+      0% {
+        transform: scale(0.97);
+        opacity: 0.85;
+      }
+      100% {
+        transform: scale(1.06);
+        opacity: 1;
+      }
+    }
+
+    /* =====================================================
        Apple-Style 3D Depth Stage (입체 레이어링 시스템)
        1. 후면: 입체 베젤 스테이지 + 대형 백그라운드 타이포그래피
        2. 중경: 프레임 밖으로 튀어나오는(Pop-out) 인물 누끼 + 다중 입체 그림자
@@ -153,23 +206,47 @@
   <main class="w-full">
 
     <!-- Essay Passage 01 -->
-    <section class="py-32 sm:py-44 px-6">
-      <div class="max-w-lg mx-auto text-center space-y-8">
-        <span class="fade-up inline-block font-sans text-[11px] tracking-[0.28em] text-muted uppercase">
-          01 · Quiet Kindness
+    <section class="relative py-32 sm:py-44 px-6 overflow-hidden">
+      <div class="max-w-lg mx-auto text-center relative z-10">
+        <!-- 상단 영문 라벨 -->
+        <span class="fade-up inline-block font-sans text-[11px] tracking-[0.28em] text-muted uppercase mb-9">
+          01 · THE PACIFIST
         </span>
-        <p class="fade-up delay-100 text-xl sm:text-2xl font-light leading-[1.95] text-charcoal">
-          "거창한 구원보다는,<br />
-          일상 속에서 건네는<br />
-          조용한 친절의 힘을 믿습니다."
-        </p>
-        <p class="fade-up delay-200 text-sm sm:text-base font-light leading-[2.1] text-muted pt-4">
-          세상은 때로 소란스럽고 날카롭습니다.<br />
-          누군가의 무심한 말 한마디에 마음이 베이고,<br />
-          이유 없는 악의 앞에서 문득 외로워지는 날도 있습니다.<br />
-          그럼에도 우리가 끝내 다정함을 포기하지 않는 이유는,<br />
-          작은 온기 하나가 한 사람의 하루를 지탱한다는 것을 알기 때문입니다.
-        </p>
+
+        <!-- 메인 타이틀 문구 + 웜 아이보리/크림 앰버/피치 톤의 포근한 Glow -->
+        <div class="relative py-6 mb-10 flex items-center justify-center">
+          <div
+            aria-hidden="true"
+            class="pacifist-warm-glow pointer-events-none absolute -inset-x-10 -inset-y-8 sm:-inset-x-16 sm:-inset-y-12 rounded-full blur-2xl"
+          ></div>
+          <h2 class="pacifist-title-reveal relative z-10 text-2xl sm:text-[1.75rem] font-normal leading-[1.75] tracking-tight text-charcoal">
+            "진정하세요,<br />
+            평화주의자가 왔습니다."
+          </h2>
+        </div>
+
+        <!-- 하단 본문 설명글 (문단 간격 및 행간 1.85 최적화) -->
+        <div class="fade-up delay-200 space-y-7 text-sm sm:text-base font-light leading-[1.85] text-muted">
+          <p>
+            모두의 마음속은 때로 범죄의 현장이 되곤 합니다.<br />
+            그렇기에 선한 사람이 더욱 소중하고,<br />
+            다정하게 살아가려는 노력이 더 값진 법입니다.
+          </p>
+
+          <p>
+            살다 보면 우리도 모르게 마음이 모질어지는 순간을 마주합니다.<br />
+            그럴 때 필요한 건 깊은 자책보다,<br />
+            스스로를 돌아보고 허물을 다듬으며<br />
+            다시 앞으로 나아가는 용기입니다.
+          </p>
+
+          <p>
+            몹시 놀라시겠지만, 저 또한 아주 가끔은 못된 마음을 품을 때가 있습니다.<br />
+            그럴 때면 조용히 제 안을 들여다보며 생각합니다.<br />
+            어떻게 하면 어제보다 조금 더 나은 사람이 되어,<br />
+            이 세상을 이롭게 할 수 있을지를요.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -597,8 +674,8 @@
   ========================================================== -->
   <script>
     (function () {
-      // 1. Scroll Fade-in & Slide-up Observer
-      const fadeElements = document.querySelectorAll('.fade-up');
+      // 1. Scroll Fade-in & Slide-up Observer (01 · THE PACIFIST 타이틀 및 Glow 포함)
+      const fadeElements = document.querySelectorAll('.fade-up, .pacifist-title-reveal, .pacifist-warm-glow');
 
       if ('IntersectionObserver' in window) {
         const observer = new IntersectionObserver(function (entries) {
